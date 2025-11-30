@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option go_package = "internal/pb/auth";
+
+package auth;
+
+service AuthService {
+    rpc Register(UserMessageRequest) returns (UserMessageResponse);
+    rpc Login(UserMessageRequest) returns (UserMessageResponse);
+}
+
+
+message UserMessageRequest {
+    string login = 1;
+    string password = 2;
+}
+
+message UserMessageResponse {
+    string token = 2;
+}
