@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option go_package = "internal/pb/vault";
+
+package vault;
+
+service VaultService {
+  rpc SyncVault(VaultListMessage) returns (VaultListMessage);
+}
+
+message VaultMessage {
+  string login = 1;
+  string name = 2;
+  string metadata = 3;
+  bytes payload = 4;
+  string comment = 5;
+  string data_type = 6;
+  bool is_deleted = 7;
+  string upload_at = 8;
+}
+
+message VaultListMessage {
+  repeated VaultMessage vault_objects = 1;
+}
